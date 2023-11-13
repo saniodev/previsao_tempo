@@ -14,6 +14,7 @@ import LabelSignUser from "../LabelSignUser";
 
 const Sign = () => {
   const router = useRouter();
+  const base_url = process.env.BASE_URL;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -33,7 +34,7 @@ const Sign = () => {
 
   const handleSignUpClick = async () => {
     try {
-      await axios.post("http://192.168.10.4:3001/user/create", {
+      await axios.post(`${base_url}/user/create`, {
         name,
         email,
         password,

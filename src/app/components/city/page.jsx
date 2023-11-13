@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 const CityPage = () => {
   const [weatherData, setWeatherData] = useState(null);
   const router = useRouter();
+  const base_url = process.env.BASE_URL;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,7 +25,7 @@ const CityPage = () => {
         }
 
         const response = await axios.post(
-          `http://192.168.10.4:3001/clima/city/${id}`,
+          `${base_url}/clima/city/${id}`,
           {
             city: cityName,
           },

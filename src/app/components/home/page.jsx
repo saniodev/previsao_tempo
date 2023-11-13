@@ -11,6 +11,8 @@ function Page() {
   const [cityInput, setCityInput] = useState("");
   const router = useRouter();
 
+  const base_url = process.env.BASE_URL;
+
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const { id, token } = userData;
@@ -35,7 +37,7 @@ function Page() {
   const fetchWeatherData = async (id, token, latitude, longitude) => {
     try {
       const response = await axios.post(
-        `http://192.168.10.4:3001/clima/weather/${id}`,
+        `${base_url}/clima/weather/${id}`,
         {
           latitude,
           longitude,
@@ -48,7 +50,7 @@ function Page() {
       );
 
       const responseCurrent = await axios.post(
-        `http://192.168.10.4:3001/clima/current/${id}`,
+        `${base_url}/clima/current/${id}`,
         {
           latitude,
           longitude,
@@ -60,7 +62,6 @@ function Page() {
         }
       );
 
-      console.log(responseCurrent);
 
       if (response.data && response.data.weatherForecast) {
         setWeatherData(response.data.weatherForecast);
