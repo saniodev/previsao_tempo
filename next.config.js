@@ -2,6 +2,6 @@
 
 module.exports = {
     env: {
-      BASE_URL:'http://192.168.10.4:3001',
+      BASE_URL:'http://localhost:3001',
     },
 }
