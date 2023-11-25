@@ -4,6 +4,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the development server:
 
+e necessario colar isso no arquivo next.config.js
+
+/** @type {import('next').NextConfig} */
+
+module.exports = {
+    env: {
+      BASE_URL:'http://localhost:3001',
+    },
+}
+
 ```bash
 npm run dev
 # or
